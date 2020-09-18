@@ -1,6 +1,8 @@
 from cluster import cluster
 import math
 import random
+import sys
+import numpy as np
 
 class kmeans(cluster):
 
@@ -15,9 +17,41 @@ class kmeans(cluster):
 
         
     def fit(self, X):
-        X = [[random.random() for x in range(3)] for y in range(100)]
 
         #Picking centroids randomly in the data
-        centroids = random.choices(X, k=self.__k)
+        centroids = list(np.array(random.choices(X, k=self.__k)))
 
-        print(centroids)
+        #We will run the algorithm the maximum amount of times specified
+        for w in range(self.__max_iterations):
+            #Initiate cluster hypotheses to -1 since we don't know yet
+            cluster_hypotheses = []
+
+            #For each point let's get the distances to each centroid
+            for x in X:
+                curr_dist = sys.float_info.max
+                prev_dist = sys.float_info.max
+                d = sys.float_info.max
+                
+                for j, c in enumerate(centroids):
+                
+                    curr_dist = self.dist(x, c)
+                    d = j if curr_dist < prev_dist else d
+                    prev_dist = curr_dist
+                cluster_hypotheses.append(d)
+            
+            potential_clusters = {}
+            
+            for hyp, x in zip(cluster_hypotheses, X):
+                if hyp not in potential_clusters:
+                    potential_clusters[hyp] = [x]
+                else:
+                    potential_clusters[hyp].append(x)
+            
+            for key in potential_clusters:
+                centroids[key] = np.mean(potential_clusters[key], axis=0)
+
+        
+        #return(cluster_hypotheses)
+        #print(cluster_hypotheses)
+
+        return([cluster_hypotheses] + [centroids])
