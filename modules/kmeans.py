@@ -48,7 +48,7 @@ class kmeans(cluster):
     
     def fit(self, X):
         #Picking centroids randomly in the data
-        centroids = list(np.array(random.choices(X, k=self.__k)))
+        centroids = [np.random.normal(np.mean(X, axis=0)) for x in range(self.__k)]
 
         #We will run the algorithm the maximum amount of times specified
         for w in range(self.__max_iterations):
