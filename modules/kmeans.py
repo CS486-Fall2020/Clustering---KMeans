@@ -48,28 +48,14 @@ class kmeans(cluster):
         return potential_clusters
 
     def __get_dist_array(self, tree, X):
-        distances = tree.query(X, len(X))[1]
+        distances = tree.query(X, len(X))[1][len(X) - self.__k :]
         return distances
         
-    def a__dist_points(self, centroid_dist_indexes, X, cluster_hypotheses):
-        for x in range(len(X)):
-            dist_indexes = centroid_dist_indexes[x % self.__k]
-
-            y = 0
-
-            print(y)
-            while(y < len(cluster_hypotheses) and cluster_hypotheses[dist_indexes[y] -1] != None):
-                y = y + 1
-            
-            print(dist_indexes[y])
-            cluster_hypotheses[dist_indexes[y]-1] = x % self.__k
-            y = 0
-    
     def __dist_points(self, centroid_dist_indexes, X, cluster_hypotheses):
         for x in range(len(X)):
             index_array = centroid_dist_indexes[x % self.__k]
 
-            for y in index_array:
+            for y in index_array[1:]:
 
                 if cluster_hypotheses[y] == None:
                     cluster_hypotheses[y] = x % self.__k
