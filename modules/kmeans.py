@@ -52,11 +52,15 @@ class kmeans(cluster):
         return distances
         
     def __dist_points(self, centroid_dist_indexes, X, cluster_hypotheses):
+        #We distribute each point
         for x in range(len(X)):
+            #let's get the right index array
             index_array = centroid_dist_indexes[x % self.__k]
 
+            #We iterate over the sorted list of indexes
             for y in index_array[1:]:
-
+                
+                #We assign the first unassigned point to the current centroid
                 if cluster_hypotheses[y] == None:
                     cluster_hypotheses[y] = x % self.__k
                     break
