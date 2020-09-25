@@ -1,10 +1,13 @@
-Output for: X, assignment= make_blobs(n_samples=[21, 12, 12, 19], cluster_std=0.80, random_state=7)
+Output for:
 
-First array is the cluster assignment for each point. (A) [line 9]
+`X, assignment= make_blobs(n_samples=[21, 12, 12, 19], cluster_std=0.80, random_state=7)
+km.fit(X)`
 
-Second array is the centroid coordinatees (B) [line 10]
+First array is the cluster assignment for each point. (A) [line 12]
 
-Third array is an extra piece of output I implemented that returns all the datapoints with the centroids included. [lines 11 through the end]
+Second array is the centroid coordinatees (B) [line 13]
+
+Third array is an extra piece of output I implemented that returns all the datapoints with the centroids included. [lines 14 through the end]
 
 [[1, 2, 1, 3, 1, 1, 1, 3, 1, 2, 3, 0, 1, 2, 1, 3, 0, 0, 3, 0, 2, 1, 1, 0, 0, 2, 0, 2, 1, 0, 3, 1, 0, 2, 1, 0, 0, 3, 1, 1, 0, 0, 2, 3, 1, 0, 0, 1, 2, 0, 3, 3, 0, 1, 1, 2, 2, 1, 3, 0, 0, 3, 2, 1],
 [array([ 0.21062385, -8.50070471]), array([-8.49163435,  5.41456247]), array([9.80765643, 0.90818138]), array([-1.2469654,  4.3187159])],
