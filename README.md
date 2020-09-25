@@ -7,3 +7,4 @@ The goal of this assignment is:
 - To extend the functionality of the developed K-means implementation through additional parameters. (This shows your ability to develop novel or custom algorithms.)<br>
 - Comparison of performance between K-Means on dataset used in Lab 02 and your version.<br>
 
+
