@@ -5,7 +5,7 @@ km.fit(X)`
 
 First array is the cluster assignment for each point. (A) [line 12]
 
-Second array is the centroid coordinatees (B) [line 13]
+Second array is the centroid coordinatees. (B) [line 13]
 
 Third array is an extra piece of output I implemented that returns all the datapoints with the centroids included. [lines 14 through the end]
 
