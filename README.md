@@ -1,5 +1,7 @@
 # Assignment-01 - Nedim Azar
 
+- Notebooks are located in the `modules` directory.
+  
 - Make sure to create a directory named `datasets` in the same directory as `modules` and name the datasets as `chicago_taxi.csv`, `historical-weather.csv` and `finnish_location.txt`
 
 - Notebook `KMeans Driver` is a demo of my implementation of KMeans and KMeans balanced.
