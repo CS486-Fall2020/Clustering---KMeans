@@ -84,14 +84,18 @@ class kmeans(cluster):
                 centroids[key] = np.mean(potential_clusters[key], axis=0)
         
         _X = X
+
+        #Balancing if necessary
         if (self.__balanced): 
             _X = list(X)
 
+            #Add centroids to dataset for KDTree
             for x in centroids:
                 _X.append(x)
 
             _X = np.array(_X)
 
+            #Create the KDTree
             tree = KDTree(_X)
 
             cluster_hypotheses = [None for x in range(len(_X))]
@@ -101,9 +105,5 @@ class kmeans(cluster):
 
             #Distribute points to centroids
             self.__dist_points(centroid_dist_indexes, _X, cluster_hypotheses)
-
-            
-
-
 
         return([cluster_hypotheses] + [centroids] + [_X])
